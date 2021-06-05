@@ -36,3 +36,18 @@ function renderYAxis(newYScale, yAxis) {
     returnyAxis;
 }
 //Function used for updating circles group with a transition to new circles
+function renderCircles(circlesGroup, newXScale, newYScale, chosenXAxis, chosenYAxis) {
+  circlesGroup.transition()
+       .duration(1000)
+       .attr("cx", d => newXScale(d[chosenXAxis]))
+       .attr("cy", d => newYScale(d[chosenYAxis]))
+    return circlesGroup;
+}
+//Function used for updating text in circles group with a transition to new text.
+function renderText(circletextGroup, newXScale, newYScale, chosenXAxis, chosenYAxis) {
+  circletextGroup.transition()
+       .duration(1000)
+       .attr("x", d => newXScale(d[chosenXAxis]))
+       .attr("x", d => newXScale(d[chosenXAxis]));
+    return circletextGroup;
+}

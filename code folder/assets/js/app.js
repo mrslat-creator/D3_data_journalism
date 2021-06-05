@@ -27,3 +27,12 @@ function yScale(data, chosenYAxis, chartHeight) {
     .range([chartHeight, 0]);
     return yLinearScale;
 }
+//Function used for updating yAxis var upon click on axis label.
+function renderYAxis(newYScale, yAxis) {
+  var leftAxis = d3.axisLeft(newYScale);
+  yAxis.transition()
+      .duration(1000)
+      .call(leftAxis);
+    returnyAxis;
+}
+//Function used for updating circles group with a transition to new circles

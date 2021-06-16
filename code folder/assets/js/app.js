@@ -64,5 +64,27 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, textGroup) {
 // Conditonal for Y Axis
 if (chosenYAxis === "healthcare") {
    var ylabel = "Healthcare Less: ";
-   
+  } else if (chosenYAxis === "smokes") {
+    var ylabel = "Smokers: "
+  } else {
+    var ylabel = "Obesity: "
+  }
+  // Define ToolTip
+  var toolTip = d3.tip()
+      .offset([120, -60])
+      .attr("class", "d3-tip")
+      .html(fuction(d) {
+        if (chosenXAxis === "age") {
+          //All yAxis ToolTip labels presented and formated as %
+          //Display Age without fromat for xAxis
+          return ('${d.state}<hr>${xlabel} $d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}%');
+        } else if (chosenXAxis !== "poverty" && chosenXAxis !== "age") {
+        // Display Income in dollars for xAxis
+          return ('${d.state}<hr>${xlabel} $d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}%');
+        } else {
+        //Display Poverty as percentage for xAxis
+          return ('${d.state}<hr>${xlabel} $d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}%');
+        }
+      });
+      
 }

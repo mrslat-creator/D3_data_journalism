@@ -61,4 +61,8 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, textGroup) {
   } else {
       var xlabel = "Age: "
   }
+// Conditonal for Y Axis
+if (chosenYAxis === "healthcare") {
+   var ylabel = "Healthcare Less: ";
+   
 }

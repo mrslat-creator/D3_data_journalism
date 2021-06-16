@@ -51,4 +51,14 @@ function renderText(circletextGroup, newXScale, newYScale, chosenXAxis, chosenYA
        .attr("y", d => newXScale(d[chosenXAxis]));
     return circletextGroup;
 }
-//
+// Function used for updating circles group with new ToolTip.
+function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, textGroup) {
+    // Conditional for X Axis
+    if(chosenXAxis === "poverty") {
+      var xlabel = "Fundless: ";
+  } else if (chosenXAxis === "income") {
+      var xlabel =  "Average Income: "
+  } else {
+      var xlabel = "Age: "
+  }
+}

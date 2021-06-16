@@ -48,6 +48,6 @@ function renderText(circletextGroup, newXScale, newYScale, chosenXAxis, chosenYA
   circletextGroup.transition()
        .duration(1000)
        .attr("x", d => newXScale(d[chosenXAxis]))
-       .attr("x", d => newXScale(d[chosenXAxis]));
+       .attr("y", d => newXScale(d[chosenXAxis]));
     return circletextGroup;
 }

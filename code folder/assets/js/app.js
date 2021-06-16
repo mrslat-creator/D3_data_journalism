@@ -33,7 +33,7 @@ function renderYAxis(newYScale, yAxis) {
   yAxis.transition()
       .duration(1000)
       .call(leftAxis);
-    returnyAxis;
+    return yAxis;
 }
 //Function used for updating circles group with a transition to new circles
 function renderCircles(circlesGroup, newXScale, newYScale, chosenXAxis, chosenYAxis) {
@@ -51,3 +51,4 @@ function renderText(circletextGroup, newXScale, newYScale, chosenXAxis, chosenYA
        .attr("y", d => newXScale(d[chosenXAxis]));
     return circletextGroup;
 }
+//

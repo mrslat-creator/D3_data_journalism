@@ -1,3 +1,16 @@
+function updateData(chartGroup, data, ycal, xcal){
+  chartGroup.selectAll("circle")
+  .data(data)
+  .enter()
+  .append()
+  .attr("cx" /* set x position based on xcol */)
+  .attr("cy" /* set y position based on ycol */)
+
+  d3.csv("assets/data/data.csv").then((data) =>{
+     console.log(data);
+  })
+}
+
 //Set default x/y axis varaiables.
 var chosenXAxis ="poverty";
 var chosenYAxis ="healthcare";

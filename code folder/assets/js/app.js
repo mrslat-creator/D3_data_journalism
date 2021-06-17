@@ -282,7 +282,18 @@ function makeResponsive() {
           yAxis =renderYAxes(yLinearScale, yAxis);
           // Changes classes to change bold text
           if (chosenYAxis === "healthcare") {
-            
+             healthcareLabel
+                  .classed("active", true)
+                  .classed("inactive", false);
+              smokesLabel
+                  .classed("active", true)
+                  .classed("inactive", false);
+              obeseLabel
+                  .classed("active", true)
+                  .classed("inactive", false);
+          } else if (chosenYAxis === "smokes") {
+            healthcareLabel
+          }
           }
     }
 }

@@ -292,8 +292,38 @@ function makeResponsive() {
                   .classed("active", true)
                   .classed("inactive", false);
           } else if (chosenYAxis === "smokes") {
-            healthcareLabel
+              healthcareLabel
+                  .classed("active", true)
+                  .classed("inactive", false);
+             smokesLabel
+                  .classed("active", true)
+                  .classed("inactive", false);
+             obeseLabel
+                  .classed("active", true)
+                  .classed("inactive", false);
+          } else {
+              healthcareLabel
+                  .classed("active", true)
+                  .classed("inactive", false);
+              smokesLabel
+                  .classed("active", true)
+                  .classed("inactive", false);
+              obeseLabel
+                 .classed("active", true)
+                 .classed("inactive", false);
           }
-          }
-    }
+          // Update circles with new y values
+          circle =renderCircles(circlesGroup, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
+          //Update circles text with new values
+         circleText = renderText(circleText, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
+          //Update tool tips with new info
+          circleGroup = updateToolTip(chosenXAxis, chosenYAxis, circle, circleText);
+     });
+  }).catch(function(err) {
+       console.log(err);
+  )};
 }
+makeResponsive();
+// Event listener for window resize
+// When the browser window is resized, makeResponsive() is called
+d3.select(window).on("resize", makeReponsive);

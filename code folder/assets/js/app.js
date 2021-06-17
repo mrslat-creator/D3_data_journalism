@@ -124,7 +124,8 @@ function makeResponsive() {
   //Chart area minus margins
   var chartHeight = svgHeight - margin.top -margin.bottom;
   var chartWidth = svgWidth - margin.left - margin.right;
-  // Create an SVG wrapper, append an SVG group that will hold our chart, and shift the latter by left and top margins
+  // Create an SVG wrapper, append an SVG group that will hold our chart, 
+  //and shift the latter by left and top margins
   var svg = d3
    .select("#scatter")
    .append("svg")
@@ -137,10 +138,23 @@ function makeResponsive() {
      if (err) throw err;
      //Parse data
      demoData. forEach(function(data)  {
-       data.poverty = +data.poverty
+       data.poverty = +data.poverty;
        data.healthcare = +data.healthcare;
        data.age = +data.age;
-       
-     })
-  })
+       data.smokes = +data.smokes;
+       data.income = +data.income;
+       data.obesity = +data.obesity;
+  });
+  // Create x/y linear scales
+  var xLinearScale = xScale(demoData, chosenXAxis, chartWidth);
+  var yLinearScale = yScale(demoData, chosenYAxis, chartHeight);
+ // Create initial axis functions
+ var bottomAxis = d3.axisBottom(xLinearScale);
+ var leftAxis = d3.axisLeft(yLinearScale);
+ // Append x axis
+ var xAxis = chartGroup.append("g")
+     .attr("transform", 'translate(0, ${chartHeight})')
+     .call(bottomAxis);
+ // Append y Axis
+ var 
 }

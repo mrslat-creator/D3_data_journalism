@@ -86,5 +86,33 @@ if (chosenYAxis === "healthcare") {
           return ('${d.state}<hr>${xlabel} $d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}%');
         }
       });
-      
+  circlesGroup.call(toolTip);
+  // Create "mouseover" event listener to display tool tip.
+  circlesGroup
+    .on("mouseover", function(data) {
+       toolTip.show(data, this);
+    }) 
+    .on("mouseout", function(data) {
+      toolTip.hide(data);
+    });
+  textGroup
+    .on("mouseover", function(data) {
+      toolTip.show(data, this);
+    })
+    .on("mouseout", function(data) {
+      toolTip.hide(data);
+    });
+  return circlesGroup;
+}
+function makeResponsive() {
+  // Select div by id.
+  var svgArea = d3.select("#scatter").select("svg");
+  //Clear SVG
+  if (!svgArea.empty()) {
+     svgArea.remove();
+  }
+  //SVG params
+  var svgHeight = window.innerHeight/1.2;
+  var svgWidth = window.innerWidth/1.7;
+  //Margins
 }

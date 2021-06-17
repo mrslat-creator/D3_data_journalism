@@ -179,5 +179,110 @@ function makeResponsive() {
   //Update tool tip function above csv import
   var circleGroup = updateToolTip(chosenXAxis, chosenYAxis, circle circleText);
   // Add x label groups and labels
-  var xlabelsGroup =
+  var xlabelsGroup = chartGroup.append("g")
+    .attr("transform", 'translate(${chartWidth/ 2}, ${chartHeight + 20})');
+  var povertyLabel = xlabelsGroup.append("text")
+    .attr("x", 0)
+    .attr("y", 20)
+    .attr("value", "poverty")// value to grab for event listener
+    .classed("active", true)
+    .text("In Poverty (%)");
+  var agelabel = xlabelsGroup.appen("text")
+     .attr("x", 0)
+     .attr("y", 40)
+     .attr("value", "age") // value to grab for event listener
+     .classed("inactive", true)
+     .text("Age (Median)");
+  var incomeLabel = xLablesGroup.append("text")
+    .attr("x", 0)
+    .attr("y", 60)
+    .attr("value", "income")// value to grab for event listener
+    .classed("inactive", true)
+    .text("Household Income (Median)");
+  // Add y labels group and lables
+  var yLabelGroup = chartGroup.append("g")
+    .attr("transform", "rotate(-90)");
+  var healthcarelabel = yLabelsGroup.append("text")
+    .attr("x", 0 - (chartHeight / 2))
+    .attr("y", 40 -margin.left)
+    .attr("dy", "1em")
+    .attr("value","healthcare")
+    .classed("active", true)
+    .text("Lacks Healthcare (%)");
+  var smokesLabel = yLabelsGroup.append("text")
+    .attr("x", 0 - (chartHeight / 2))
+    .attr("y", 20 - margin.left)
+    .attr("dy", "1em")
+    .attr("value", "smokes")
+    .classed("inactive", true)
+    .text("In Poverty (%)");
+  var obeseLabel = yLabelGroup.append("text")
+    .attr("x", 0 - (chartHeight / 2))
+    .attr("y", 0 - margin.left)
+    .attr("dy", "1em")
+    .attr("value", "obesity")
+    .classed("inactive", true)
+    .text("Obese (%)");
+  // X labels event listener
+   xlabelsGroup.selectAll("text")
+       .on("click", function() {
+         // Grab selected label
+         chosenYAxis = d3.select(this).attr("value");
+         // Update xlinerScale
+         xLinearScale = xScale(demoData, chosenXAxis, chartWidth);
+         //Render xAxis
+         xAxis = renderxAxis(xLinerScale, xAxis);
+         // Switch active/inactive labels
+         if (chosenXAxis === "poverty") {
+            povertyLabel 
+              .classed("active", true)
+              .classed("inactive", false);
+            agelabel
+              .classed("active", true)
+              .classed("inactive", false);
+            incomeLabel
+             .classed("active", true)
+             .classed("inactive", false);
+         } else if (chosenXAxis === "age") {
+            povertyLabel 
+              .classed("active", true)
+              .classed("inactive", false);
+            agelabel
+              .classed("active", true)
+              .classed("inactive", false);
+            incomeLabel
+              .classed("active", true)
+              .classed("inactive", false);
+         } else {
+            povertyLabel 
+              .classed("active", true)
+              .classed("inactive", false);
+            agelabel
+              .classed("active", true)
+              .classed("inactive", false);
+            incomeLabel
+              .classed("active", true)
+              .classed("inactive", false);
+         }
+         //Update circles with new x values
+         circle = renderCircles(circlesGroup, xLinerScale, yLinearScale, chosenXAxis, chosenYAxis);
+         //Update tool tips with new info
+         circleGroup = updateToolTip(chosenXAxis, chosenYAxis, circle, circleText);
+         //Update circles text with new values
+         circleText = renderText(circleText, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
+    });
+   // Y Labels event listener
+   yLabelsGroup.selectAll("text")
+      .on("click", function() {
+          // Grab selected label
+          chosenYAxis = d3.select(this).attr("value");
+          // Update yLinearScale
+          yLinearScale = yScale(demoData, chosenYAxis, charHeight);
+          // Update yAxis
+          yAxis =renderYAxes(yLinearScale, yAxis);
+          // Changes classes to change bold text
+          if (chosenYAxis === "healthcare") {
+            
+          }
+    }
 }

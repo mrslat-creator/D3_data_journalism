@@ -10,5 +10,7 @@ The data set included with the assignment is based on 2014 ACS 1-year estimates 
 
 
 
-*app.js (Used for final Dashboard)
+![4-scatter](Images/4-scatter.jpg)
 
+
+https://github.com/mrslat-creator/D3_data_journalism/blob/d2d5510f4808304e16c59c9452d8efa0380dd282/code%20folder/index.html

@@ -70,7 +70,7 @@ if (chosenYAxis === "healthcare") {
     var ylabel = "Obesity: "
   }
   // Define ToolTip
-  var toolTip = d3.tip()
+  var toolTip = d3-tip.js()
       .offset([120, -60])
       .attr("class", "d3-tip")
       .html(fuction(d) {
@@ -106,7 +106,7 @@ if (chosenYAxis === "healthcare") {
 }
 function makeResponsive() {
   // Select div by id.
-  var svgArea = d3.select("#scatter").select("svg");
+  var svgArea = d3.select("scatter").select("svg");
   //Clear SVG
   if (!svgArea.empty()) {
      svgArea.remove();
@@ -127,7 +127,7 @@ function makeResponsive() {
   // Create an SVG wrapper, append an SVG group that will hold our chart, 
   //and shift the latter by left and top margins
   var svg = d3
-   .select("#scatter")
+   .select("scatter")
    .append("svg")
    .attr("width", svgWidth)
    .attr("height", svgHeight);

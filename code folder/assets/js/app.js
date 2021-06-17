@@ -48,7 +48,7 @@ function renderText(circletextGroup, newXScale, newYScale, chosenXAxis, chosenYA
   circletextGroup.transition()
        .duration(1000)
        .attr("x", d => newXScale(d[chosenXAxis]))
-       .attr("y", d => newXScale(d[chosenXAxis]));
+       .attr("y", d => newYScale(d[chosenYAxis]));
     return circletextGroup;
 }
 // Function used for updating circles group with new ToolTip.
@@ -156,5 +156,13 @@ function makeResponsive() {
      .attr("transform", 'translate(0, ${chartHeight})')
      .call(bottomAxis);
  // Append y Axis
- var 
+ var yAxis = chartGroup.append("g")
+    .call(LeftAxis);
+  // Set data used for circles
+  var circleGroup = chartGroup.selectAll("circle")
+      .data(demoData);
+  //Bind data
+  var elemEnter = circlesGroup.enter();
+  //Create Circles
+  var
 }

@@ -81,13 +81,13 @@ if (chosenYAxis === "healthcare") {
           //All yAxis ToolTip labels presented and formated as %
           //Display Age without fromat for xAxis
           return ('${d.state}<hr>${xlabel}$d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}%');
-        } else if (chosenXAxis !== "poverty" && chosenXAxis !== "age") {
-        // Display Income in dollars for xAxis
+          } else if (chosenXAxis !== "poverty" && chosenXAxis !== "age") {
+          // Display Income in dollars for xAxis
           return ('${d.state}<hr>${xlabel}$$d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}%');
-        } else {
-        //Display Poverty as percentage for xAxis
+          } else {
+          //Display Poverty as percentage for xAxis
           return ('${d.state}<hr>${xlabel}$d[chosenXAxis]}%<br>${ylabel}${d[chosenYAxis]}%');
-        }
+          }
       });
   circlesGroup.call(toolTip);
   // Create "mouseover" event listener to display tool tip.
@@ -109,7 +109,7 @@ if (chosenYAxis === "healthcare") {
 }
 function makeResponsive() {
   // Select div by id.
-  var svgArea = d3.select("scatter").select("svg");
+  var svgArea = d3.select("#scatter").select("svg");
   //Clear SVG
   if (!svgArea.empty()) {
      svgArea.remove();

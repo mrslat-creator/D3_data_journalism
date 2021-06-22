@@ -80,13 +80,13 @@ if (chosenYAxis === "healthcare") {
         if (chosenXAxis === "age") {
           //All yAxis ToolTip labels presented and formated as %
           //Display Age without fromat for xAxis
-          return ('${d.state}<hr>${xlabel}$d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}%');
+          return (`${d.state}<hr>${xlabel}$d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}%`);
           } else if (chosenXAxis !== "poverty" && chosenXAxis !== "age") {
           // Display Income in dollars for xAxis
-          return ('${d.state}<hr>${xlabel}$$d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}%');
+          return (`${d.state}<hr>${xlabel}$$d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}%`);
           } else {
           //Display Poverty as percentage for xAxis
-          return ('${d.state}<hr>${xlabel}$d[chosenXAxis]}%<br>${ylabel}${d[chosenYAxis]}%');
+          return (`${d.state}<hr>${xlabel}$d[chosenXAxis]}%<br>${ylabel}${d[chosenYAxis]}%`);
           }
       });
   circlesGroup.call(toolTip);
@@ -136,7 +136,7 @@ function makeResponsive() {
    .attr("height", svgHeight);
   // Append an SVG group
   var chartGroup = svg.append("g")
-      .attr("transform", 'translate(${margin.left}, ${margin.top})');
+      .attr("transform", `translate(${margin.left}, ${margin.top})`);
   d3.csv("assets/data/data.csv").then(function(demoData, err) {
      if (err) throw err;
      //Parse data
@@ -156,7 +156,7 @@ function makeResponsive() {
  var leftAxis = d3.axisLeft(yLinearScale);
  // Append x axis
  var xAxis = chartGroup.append("g")
-     .attr("transform", 'translate(0, ${chartHeight})')
+     .attr("transform", `translate(0, ${chartHeight})`)
      .call(bottomAxis);
  // Append y Axis
  var yAxis = chartGroup.append("g")
@@ -183,7 +183,7 @@ function makeResponsive() {
   var circleGroup = updateToolTip(chosenXAxis, chosenYAxis, circleText);
   // Add x label groups and labels
   var xlabelsGroup = chartGroup.append("g")
-    .attr("transform", 'translate(${chartWidth/ 2}, ${chartHeight + 20})');
+    .attr("transform", `translate(${chartWidth/ 2}, ${chartHeight + 20})`);
   var povertyLabel = xlabelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 20)
@@ -273,7 +273,7 @@ function makeResponsive() {
          circleGroup = updateToolTip(chosenXAxis, chosenYAxis, circle, circleText);
          //Update circles text with new values
          circleText = renderText(circleText, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
-    });
+     });
    // Y Labels event listener
    yLabelsGroup.selectAll("text")
       .on("click", function() {
@@ -282,7 +282,7 @@ function makeResponsive() {
           // Update yLinearScale
           yLinearScale = yScale(demoData, chosenYAxis, charHeight);
           // Update yAxis
-          yAxis =renderYAxes(yLinearScale, yAxis);
+          yAxis = renderYAxes(yLinearScale, yAxis);
           // Changes classes to change bold text
           if (chosenYAxis === "healthcare") {
              healthcareLabel
@@ -318,7 +318,7 @@ function makeResponsive() {
           // Update circles with new y values
           circle = renderCircles(circlesGroup, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
           //Update circles text with new values
-         circleText = renderText(circleText, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
+          circleText = renderText(circleText, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
           //Update tool tips with new info
           circleGroup = updateToolTip(chosenXAxis, chosenYAxis, circle, circleText);
         });

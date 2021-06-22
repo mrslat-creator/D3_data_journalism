@@ -13,6 +13,9 @@ body {
   /* Padding bottom by footer height */
   padding-bottom: 80px;
 }
+hr {
+  border-top: 1px solid white;
+}
 
 #footer {
   position: absolute;

@@ -120,7 +120,7 @@ function makeResponsive() {
   //Margins
   var margin = {
      top:50,
-     right: 50
+     right: 50,
      bottom: 100, 
      left: 80
   };
@@ -130,7 +130,7 @@ function makeResponsive() {
   // Create an SVG wrapper, append an SVG group that will hold our chart, 
   //and shift the latter by left and top margins
   var svg = d3
-   .select("scatter")
+   .select("#scatter")
    .append("svg")
    .attr("width", svgWidth)
    .attr("height", svgHeight);
@@ -147,7 +147,7 @@ function makeResponsive() {
        data.smokes = +data.smokes;
        data.income = +data.income;
        data.obesity = +data.obesity;
-  });
+     });
   // Create x/y linear scales
   var xLinearScale = xScale(demoData, chosenXAxis, chartWidth);
   var yLinearScale = yScale(demoData, chosenYAxis, chartHeight);
@@ -167,7 +167,7 @@ function makeResponsive() {
   //Bind data
   var elemEnter = circlesGroup.enter();
   //Create Circles
-  var circle - elemEnter.append("circle")
+  var circle = elemEnter.append("circle")
     .attr("cx", d => xLinearScale(d[chosenXAxis]))
     .attr("cy", d => yLinearScale(d[chosenYAxis]))
     .attr("r", 15)
@@ -180,7 +180,7 @@ function makeResponsive() {
     .text(d => d.abbr)
     .classed("stateText", true);
   //Update tool tip function above csv import
-  var circleGroup = updateToolTip(chosenXAxis, chosenYAxis, circle circleText);
+  var circleGroup = updateToolTip(chosenXAxis, chosenYAxis, circleText);
   // Add x label groups and labels
   var xlabelsGroup = chartGroup.append("g")
     .attr("transform", 'translate(${chartWidth/ 2}, ${chartHeight + 20})');
@@ -190,7 +190,7 @@ function makeResponsive() {
     .attr("value", "poverty")// value to grab for event listener
     .classed("active", true)
     .text("In Poverty (%)");
-  var agelabel = xlabelsGroup.appen("text")
+  var agelabel = xlabelsGroup.append("text")
      .attr("x", 0)
      .attr("y", 40)
      .attr("value", "age") // value to grab for event listener
@@ -316,15 +316,15 @@ function makeResponsive() {
                  .classed("inactive", false);
           }
           // Update circles with new y values
-          circle =renderCircles(circlesGroup, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
+          circle = renderCircles(circlesGroup, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
           //Update circles text with new values
          circleText = renderText(circleText, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
           //Update tool tips with new info
           circleGroup = updateToolTip(chosenXAxis, chosenYAxis, circle, circleText);
-     });
+        });
   }).catch(function(err) {
        console.log(err);
-  )};
+  });
 }
 makeResponsive();
 // Event listener for window resize

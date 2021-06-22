@@ -1,5 +1,5 @@
-d3.csv("assets/data/data.csv").then((data) =>{
-     console.log(data);
+ //d3.csv("assets/data/data.csv").then((data) =>{
+     //console.log(data);
 });
 //Set default x/y axis varaiables.
 var chosenXAxis ="poverty";
@@ -108,11 +108,11 @@ if (chosenYAxis === "healthcare") {
   return circlesGroup;
 }
 function makeResponsive() {
-  // Select div by id.
-  var svgArea = d3.select("#scatter").select("svg");
-  //Clear SVG
-  if (!svgArea.empty()) {
-     svgArea.remove();
+    // Select div by id.
+    var svgArea = d3.select("#scatter").select("svg");
+    //Clear SVG
+    if (!svgArea.empty()) {
+        svgArea.remove();
   }
   //SVG params
   var svgHeight = window.innerHeight/1.2;
@@ -146,7 +146,7 @@ function makeResponsive() {
        data.age = +data.age;
        data.smokes = +data.smokes;
        data.income = +data.income;
-       data.obesity = data.obesity;
+       data.obesity = +data.obesity;
      });
   // Create x/y linear scales
   var xLinearScale = xScale(demoData, chosenXAxis, chartWidth);

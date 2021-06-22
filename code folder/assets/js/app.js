@@ -1,5 +1,5 @@
- //d3.csv("assets/data/data.csv").then((data) =>{
-     //console.log(data);
+ d3.csv("assets/data/data.csv").then((data) =>{
+     console.log(data);
 });
 //Set default x/y axis varaiables.
 var chosenXAxis ="poverty";

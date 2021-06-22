@@ -66,7 +66,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, textGroup) {
   }
 // Conditonal for Y Axis
 if (chosenYAxis === "healthcare") {
-   var ylabel = "Healthcare Less: ";
+   var ylabel = "Lacks Healthcare: ";
   } else if (chosenYAxis === "smokes") {
     var ylabel = "Smokers: "
   } else {
@@ -83,7 +83,7 @@ if (chosenYAxis === "healthcare") {
           return ('${d.state}<hr>${xlabel} $d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}%');
         } else if (chosenXAxis !== "poverty" && chosenXAxis !== "age") {
         // Display Income in dollars for xAxis
-          return ('${d.state}<hr>${xlabel} $d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}%');
+          return ('${d.state}<hr>${xlabel}$$d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}%');
         } else {
         //Display Poverty as percentage for xAxis
           return ('${d.state}<hr>${xlabel} $d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}%');

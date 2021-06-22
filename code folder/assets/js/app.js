@@ -80,13 +80,13 @@ if (chosenYAxis === "healthcare") {
         if (chosenXAxis === "age") {
           //All yAxis ToolTip labels presented and formated as %
           //Display Age without fromat for xAxis
-          return ('${d.state}<hr>${xlabel} $d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}%');
+          return ('${d.state}<hr>${xlabel}$d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}%');
         } else if (chosenXAxis !== "poverty" && chosenXAxis !== "age") {
         // Display Income in dollars for xAxis
           return ('${d.state}<hr>${xlabel}$$d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}%');
         } else {
         //Display Poverty as percentage for xAxis
-          return ('${d.state}<hr>${xlabel} $d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}%');
+          return ('${d.state}<hr>${xlabel}$d[chosenXAxis]}%<br>${ylabel}${d[chosenYAxis]}%');
         }
       });
   circlesGroup.call(toolTip);

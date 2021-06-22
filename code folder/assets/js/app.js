@@ -6,10 +6,10 @@ var chosenXAxis ="poverty";
 var chosenYAxis ="healthcare";
 // Function used for updating x-scale var upon click on axis label.
 function xScale(data, chosenXAxis, chartWidth) {
-  // Creat scales.
+  // Creat scales
   var xLinearScale = d3.scaleLinear()
-      .domain([d3.min(data, d => d[chosenXAxis]) *.8,
-               d3.max(data, d => d[chosenXAxis]) *1.1])
+      .domain([d3.min(data, d => d[chosenXAxis]) * .8,
+               d3.max(data, d => d[chosenXAxis]) * 1.1])
       .range([0, chartWidth]);
   return xLinearScale;
 }
@@ -43,7 +43,7 @@ function renderCircles(circlesGroup, newXScale, newYScale, chosenXAxis, chosenYA
   circlesGroup.transition()
        .duration(1000)
        .attr("cx", d => newXScale(d[chosenXAxis]))
-       .attr("cy", d => newYScale(d[chosenYAxis]))
+       .attr("cy", d => newYScale(d[chosenYAxis]));
     return circlesGroup;
 }
 //Function used for updating text in circles group with a transition to new text.
@@ -73,7 +73,7 @@ if (chosenYAxis === "healthcare") {
     var ylabel = "Obesity: "
   }
   // Define ToolTip
-  var toolTip = d3-tip.js()
+  var toolTip = d3.tip()
       .offset([120, -60])
       .attr("class", "d3-tip")
       .html(fuction(d) {
@@ -146,7 +146,7 @@ function makeResponsive() {
        data.age = +data.age;
        data.smokes = +data.smokes;
        data.income = +data.income;
-       data.obesity = +data.obesity;
+       data.obesity = data.obesity;
      });
   // Create x/y linear scales
   var xLinearScale = xScale(demoData, chosenXAxis, chartWidth);

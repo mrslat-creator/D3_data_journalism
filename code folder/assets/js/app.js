@@ -137,7 +137,7 @@ function makeResponsive() {
   d3.csv("assets/data/data.csv").then(function(demoData, err) {
      if (err) throw err;
      //Parse data
-     demoData. forEach(function(data)  {
+     demoData.forEach(function(data)  {
        data.poverty = +data.poverty;
        data.healthcare = +data.healthcare;
        data.age = +data.age;
@@ -165,17 +165,17 @@ function makeResponsive() {
   var elemEnter = circlesGroup.enter();
   //Create Circles
   var circle = elemEnter.append("circle")
-    .attr("cx", d => xLinearScale(d[chosenXAxis]))
-    .attr("cy", d => yLinearScale(d[chosenYAxis]))
-    .attr("r", 15)
-    .classed("stateCircle", true);
+      .attr("cx", d => xLinearScale(d[chosenXAxis]))
+      .attr("cy", d => yLinearScale(d[chosenYAxis]))
+      .attr("r", 15)
+      .classed("stateCircle", true);
   // Create circle text
   var circleText = elemEnter.append("text")
-    .attr("x", d => xLinearScale(d[chosenXAxis]))
-    .attr("y", d => yLinearScale(d[chosenYAxis]))
-    .attr("dy", ".35em")
-    .text(d => d.abbr)
-    .classed("stateText", true);
+      .attr("x", d => xLinearScale(d[chosenXAxis]))
+      .attr("y", d => yLinearScale(d[chosenYAxis]))
+      .attr("dy", ".35em")
+      .text(d => d.abbr)
+      .classed("stateText", true);
   //Update tool tip function above csv import
   var circleGroup = updateToolTip(chosenXAxis, chosenYAxis, circleText);
   // Add x label groups and labels

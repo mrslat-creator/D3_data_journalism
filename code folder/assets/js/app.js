@@ -114,23 +114,22 @@ function makeResponsive() {
     if (!svgArea.empty()) {
         svgArea.remove();
   }
-  //SVG params
+    //SVG params
   var svgHeight = window.innerHeight/1.2;
   var svgWidth = window.innerWidth/1.7;
-  //Margins
+    //Margins
   var margin = {
-     top:50,
-     right: 50,
+     top:20,
+     right: 40,
      bottom: 100, 
-     left: 80
+     left: 60
   };
   //Chart area minus margins
   var chartHeight = svgHeight - margin.top -margin.bottom;
   var chartWidth = svgWidth - margin.left - margin.right;
   // Create an SVG wrapper, append an SVG group that will hold our chart, 
   //and shift the latter by left and top margins
-  var svg = d3
-   .select("#scatter")
+  var svg = d3.select("#scatter")
    .append("svg")
    .attr("width", svgWidth)
    .attr("height", svgHeight);

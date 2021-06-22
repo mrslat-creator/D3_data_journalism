@@ -1,6 +1,6 @@
 //Set default x/y axis varaiables.
-var chosenXAxis ="poverty";
-var chosenYAxis ="healthcare";
+var chosenXAxis = "poverty";
+var chosenYAxis = "healthcare";
 // Function used for updating x-scale var upon click on axis label.
 function xScale(data, chosenXAxis, chartWidth) {
   // Creat scales
@@ -23,8 +23,8 @@ function yScale(data, chosenYAxis, chartHeight) {
   //Create Scales
   var yLinearScale = d3.scaleLinear()
       .domain([d3.min(data, d => d[chosenYAxis]) * .8,
-      d3.max(data, d => d[chosenYAxis]) * 1.2])
-    .range([chartHeight, 0]);
+        d3.max(data, d => d[chosenYAxis]) * 1.2])
+      .range([chartHeight, 0]);
     return yLinearScale;
 }
 //Function used for updating yAxis var upon click on axis label.
@@ -57,12 +57,12 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, textGroup) {
     if(chosenXAxis === "poverty") {
       var xlabel = "Poverty: ";
   } else if (chosenXAxis === "income") {
-      var xlabel =  "Median Income: "
+      var xlabel = "Median Income: "
   } else {
       var xlabel = "Age: "
   }
-// Conditonal for Y Axis
-if (chosenYAxis === "healthcare") {
+  // Conditonal for Y Axis
+  if (chosenYAxis === "healthcare") {
    var ylabel = "Lacks Healthcare: ";
   } else if (chosenYAxis === "smokes") {
     var ylabel = "Smokers: "
@@ -73,7 +73,7 @@ if (chosenYAxis === "healthcare") {
   var toolTip = d3.tip()
       .offset([120, -60])
       .attr("class", "d3-tip")
-      .html(fuction(d) {
+      .html(function(d) {
         if (chosenXAxis === "age") {
           //All yAxis ToolTip labels presented and formated as %
           //Display Age without fromat for xAxis

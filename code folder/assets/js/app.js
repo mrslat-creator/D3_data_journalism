@@ -25,8 +25,8 @@ function renderXAxis(newXScale, xAxis) {
 function yScale(data, chosenYAxis, chartHeight) {
   //Create Scales
   var yLinearScale = d3.scaleLinear()
-      .domain([d3.min(data, d => d[chosenYAxis]) *8,
-      d3.max(data, d => d[chosenYAxis]) *1.2])
+      .domain([d3.min(data, d => d[chosenYAxis]) * .8,
+      d3.max(data, d => d[chosenYAxis]) * 1.2])
     .range([chartHeight, 0]);
     return yLinearScale;
 }
@@ -58,9 +58,9 @@ function renderText(circletextGroup, newXScale, newYScale, chosenXAxis, chosenYA
 function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, textGroup) {
     // Conditional for X Axis
     if(chosenXAxis === "poverty") {
-      var xlabel = "Fundless: ";
+      var xlabel = "Poverty: ";
   } else if (chosenXAxis === "income") {
-      var xlabel =  "Average Income: "
+      var xlabel =  "Median Income: "
   } else {
       var xlabel = "Age: "
   }

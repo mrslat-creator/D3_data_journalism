@@ -1,6 +1,3 @@
- d3.csv("assets/data/data.csv").then((data) =>{
-     console.log(data);
-});
 //Set default x/y axis varaiables.
 var chosenXAxis ="poverty";
 var chosenYAxis ="healthcare";
@@ -9,7 +6,7 @@ function xScale(data, chosenXAxis, chartWidth) {
   // Creat scales
   var xLinearScale = d3.scaleLinear()
       .domain([d3.min(data, d => d[chosenXAxis]) * .8,
-               d3.max(data, d => d[chosenXAxis]) * 1.1])
+          d3.max(data, d => d[chosenXAxis]) * 1.1])
       .range([0, chartWidth]);
   return xLinearScale;
 }
@@ -80,7 +77,7 @@ if (chosenYAxis === "healthcare") {
         if (chosenXAxis === "age") {
           //All yAxis ToolTip labels presented and formated as %
           //Display Age without fromat for xAxis
-          return (`${d.state}<hr>${xlabel}$d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}%`);
+          return (`${d.state}<hr>${xlabel} $d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}%`);
           } else if (chosenXAxis !== "poverty" && chosenXAxis !== "age") {
           // Display Income in dollars for xAxis
           return (`${d.state}<hr>${xlabel}$$d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}%`);
@@ -119,17 +116,18 @@ function makeResponsive() {
   var svgWidth = window.innerWidth/1.7;
     //Margins
   var margin = {
-     top:20,
-     right: 40,
+     top:50,
+     right: 50,
      bottom: 100, 
-     left: 60
+     left: 80
   };
   //Chart area minus margins
-  var chartHeight = svgHeight - margin.top -margin.bottom;
+  var chartHeight = svgHeight - margin.top - margin.bottom;
   var chartWidth = svgWidth - margin.left - margin.right;
   // Create an SVG wrapper, append an SVG group that will hold our chart, 
   //and shift the latter by left and top margins
-  var svg = d3.select("#scatter")
+  var svg = d3
+   .select("#scatter")
    .append("svg")
    .attr("width", svgWidth)
    .attr("height", svgHeight);
@@ -145,20 +143,20 @@ function makeResponsive() {
        data.age = +data.age;
        data.smokes = +data.smokes;
        data.income = +data.income;
-       data.obesity = +data.obesity;
+       data.obesity = data.obesity;
      });
   // Create x/y linear scales
   var xLinearScale = xScale(demoData, chosenXAxis, chartWidth);
   var yLinearScale = yScale(demoData, chosenYAxis, chartHeight);
- // Create initial axis functions
- var bottomAxis = d3.axisBottom(xLinearScale);
- var leftAxis = d3.axisLeft(yLinearScale);
- // Append x axis
- var xAxis = chartGroup.append("g")
+  // Create initial axis functions
+  var bottomAxis = d3.axisBottom(xLinearScale);
+  var leftAxis = d3.axisLeft(yLinearScale);
+  // Append x axis
+  var xAxis = chartGroup.append("g")
      .attr("transform", `translate(0, ${chartHeight})`)
      .call(bottomAxis);
- // Append y Axis
- var yAxis = chartGroup.append("g")
+  // Append y Axis
+  var yAxis = chartGroup.append("g")
     .call(LeftAxis);
   // Set data used for circles
   var circleGroup = chartGroup.selectAll("circle")

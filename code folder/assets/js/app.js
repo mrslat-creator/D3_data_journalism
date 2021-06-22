@@ -159,7 +159,7 @@ function makeResponsive() {
   var yAxis = chartGroup.append("g")
     .call(LeftAxis);
   // Set data used for circles
-  var circleGroup = chartGroup.selectAll("circle")
+  var circlesGroup = chartGroup.selectAll("circle")
       .data(demoData);
   //Bind data
   var elemEnter = circlesGroup.enter();
@@ -177,7 +177,7 @@ function makeResponsive() {
       .text(d => d.abbr)
       .classed("stateText", true);
   //Update tool tip function above csv import
-  var circleGroup = updateToolTip(chosenXAxis, chosenYAxis, circleText);
+  var circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circleText);
   // Add x label groups and labels
   var xlabelsGroup = chartGroup.append("g")
     .attr("transform", `translate(${chartWidth/ 2}, ${chartHeight + 20})`);
@@ -204,7 +204,7 @@ function makeResponsive() {
     .attr("transform", "rotate(-90)");
   var healthcarelabel = yLabelsGroup.append("text")
     .attr("x", 0 - (chartHeight / 2))
-    .attr("y", 40 -margin.left)
+    .attr("y", 40 - margin.left)
     .attr("dy", "1em")
     .attr("value","healthcare")
     .classed("active", true)

@@ -1,4 +1,5 @@
 //Import Data
+import {csv} from 'd3';
 var file ="Assets/assets/data/data.csv";
 //Set default x/y axis varaiables.
 var chosenXAxis = "poverty";

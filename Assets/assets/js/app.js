@@ -1,3 +1,4 @@
+//Create a responsive chart
 
 //Function to resize chart
 function responsiveChart() {
@@ -83,6 +84,7 @@ function responsiveChart() {
       chartGroup.append("g")
            .attr("transform", `translate(0, ${chartHeight})`)
            .call(bottomAxis);
+
       //leftAxis is place on left
       chartGroup.append("g")
          .call(leftAxis);
@@ -127,5 +129,29 @@ function responsiveChart() {
            
            .on("click", tool_tip.show)
            .on("mouseout", tool_tip.hide)
-        //
-})
+        
+         //Create axis labels
+         //yAxis label
+         chartGroup.append("text")
+              .attr("transform", "rotate(-90)")
+              .attr("y", 0 -margin.left +15)
+              .attr("x", 0 - (chartHeight / 2))
+              .attr("class", "axisText")
+              .text("Poverty Index");
+       
+         //xAxis label
+         chartGroup.append("text")
+         .attr("y", chartHeight + margin.top + 5)
+         .attr("x", chartWidth / 2)
+         .attr("class", "axisText")
+         .text("Healthcare Index");
+
+    });
+
+ };
+
+ //call responsiveChart when page loads
+ responsiveChart();
+
+ //call make responsixe when page is resized
+ d3.select(window).on("resize", responsiveChart);

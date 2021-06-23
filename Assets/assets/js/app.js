@@ -134,7 +134,7 @@ function makeResponsive() {
   // Append an SVG group
   var chartGroup = svg.append("g")
       .attr("transform", `translate(${margin.left}, ${margin.top})`);
-  d3.csv("assets/data/data.csv").then(function(demoData, err) {
+  d3.csv("Assets/assets/data/data.csv").then(function(demoData, err) {
      if (err) throw err;
      //Parse data
      demoData.forEach(function(data)  {

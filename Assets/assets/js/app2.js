@@ -55,7 +55,7 @@ d3.csv("Assets/assets/data/data.csv").then(function(demoData) {
           .call(leftAxis);
 
        //Create circles
-       var circleGroup = chartGroup.selectAll("circle")
+       var circlesGroup = chartGroup.selectAll("circle")
        .data(demoData)
        .enter()
        .append("circle")

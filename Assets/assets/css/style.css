@@ -17,7 +17,28 @@ hr {
   border-top: 1px solid white;
 }
 
-#footer {
+.tooltip {
+ position: absolute;
+ width: 135 px;
+ height: 60px;
+ padding: 2px;
+ padding-top: 8px;
+ font: 12px sans-serif;
+ color: white;
+ text-align: center;
+ background: #551aaf;
+ border: 0;
+ border-radius: 10px;
+ }
+
+ .axisText {
+   font-family: sans-serif;
+   font-weight: bold;
+   fill: #551aaf;
+   text-anchor: middle;
+  }
+ 
+  #footer {
   position: absolute;
   bottom: 0;
   width: 100%; /* Set the fixed height of the footer here */

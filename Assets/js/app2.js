@@ -76,7 +76,7 @@ d3.csv("Assets/assets/data/data.csv").then(function(demoData) {
        //Create tooltip in the chart
        chartGroup.call(toolTip);
 
-       //Create event listeners to display and hide tooltips
+       //Create event listeners to display and hid tooltips
        circlesGroup.on("click", function(data) {
            toolTip.show(data, this);
        })
@@ -95,7 +95,7 @@ d3.csv("Assets/assets/data/data.csv").then(function(demoData) {
           .text("State by State Breakdown of Poverty");
 
         chartGroup.append("text")
-           .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
+           .attr("transform", `translate(${width / 2}, ${height + margin.top +30})`)
            .attr("class", "axisText")
            .text("State by State Breakdown of Healthcare");
      }).catch(function(error) {

@@ -62,7 +62,7 @@ d3.csv("Assets/assets/data/data.csv").then(function(demoData) {
        .attr("cx", d => xLinearScale(d.poverty))
        .attr("cy", d => yLinearScale(d.healthcare))
        .attr("r", "15")
-       .attr("fill", "purple")
+       .attr("fill", "pink")
        .attr("opacity", ".5");
 
        //Init Tool Tip

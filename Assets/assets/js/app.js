@@ -51,24 +51,24 @@ function renderText(circletextGroup, newXScale, newYScale, chosenXAxis, chosenYA
        .attr("y", d => newYScale(d[chosenYAxis]));
     return circletextGroup;
 }
-// Function used for updating circles group with new ToolTip.
-function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, textGroup) {
-    // Conditional for X Axis
-    if(chosenXAxis === "poverty") {
-      var xlabel = "Poverty: ";
-  } else if (chosenXAxis === "income") {
-      var xlabel = "Income: ";
-  } else {
-      var xlabel = "Age: ";
-  }
-  // Conditonal for Y Axis
-  if (chosenYAxis === "healthcare") {
-   var ylabel = "Lacks Healthcare: ";
-  } else if (chosenYAxis === "smokes") {
-    var ylabel = "Smokers: ";
-  } else {
-    var ylabel = "Obesity: ";
-  }
+// // Function used for updating circles group with new ToolTip.
+// function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, textGroup) {
+//     // Conditional for X Axis
+//     if(chosenXAxis === "poverty") {
+//       var xlabel = "Poverty: ";
+//   } else if (chosenXAxis === "income") {
+//       var xlabel = "Income: ";
+//   } else {
+//       var xlabel = "Age: ";
+//   }
+//   // Conditonal for Y Axis
+//   if (chosenYAxis === "healthcare") {
+//    var ylabel = "Lacks Healthcare: ";
+//   } else if (chosenYAxis === "smokes") {
+//     var ylabel = "Smokers: ";
+//   } else {
+//     var ylabel = "Obesity: ";
+//   }
   // Define ToolTip
   var toolTip = d3.tip()
       .offset([120, -60])
@@ -103,7 +103,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, textGroup) {
       toolTip.hide(data);
     });
   return circlesGroup;
-}
+//}
 function makeResponsive() {
     // Select div by id.
     var svgArea = d3.select("#scatter").select("svg");
@@ -177,7 +177,7 @@ function makeResponsive() {
       .text(d => d.abbr)
       .classed("stateText", true);
   //Update tool tip function above csv import
-  var circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circleText);
+ // var circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circleText);
   // Add x label groups and labels
   var xlabelsGroup = chartGroup.append("g")
     .attr("transform", `translate(${chartWidth/ 2}, ${chartHeight + 20})`);

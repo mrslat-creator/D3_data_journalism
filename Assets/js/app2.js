@@ -1,3 +1,6 @@
+
+function makeResponsive() {
+
 var svgWidth = 960;
 var svgHeight = 500;
 
@@ -101,3 +104,9 @@ d3.csv("Assets/data/data.csv").then(function(demoData) {
      }).catch(function(error) {
           console.log(error);
         });
+// When the browser loads, makeResponsive() is called.
+makeResponsive();
+
+// When the browser window is resized, makeResponsive() is called.
+d3.select(window).on("resize", makeResponsive);
+}

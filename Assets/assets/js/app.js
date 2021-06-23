@@ -1,5 +1,5 @@
 //Import Data
-var file ="Assets/assets/data/data.csv"
+var file ="Assets/assets/data/data.csv";
 //Set default x/y axis varaiables.
 var chosenXAxis = "poverty";
 var chosenYAxis = "healthcare";

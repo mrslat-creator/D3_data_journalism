@@ -27,10 +27,10 @@ d3.csv("Assets/assets/data/data.csv").then(function(demoData) {
       demoData.forEach(function(data)  {
         data.poverty = +data.poverty;
         data.healthcare = +data.healthcare;
-        data.age = +data.age;
-        data.smokes = +data.smokes;
-        data.income = +data.income;
-        data.obesity = +data.obesity;
+        // data.age = +data.age;
+        // data.smokes = +data.smokes;
+        // data.income = +data.income;
+        // data.obesity = +data.obesity;
       });
 
       // Create x/y linear scales
@@ -60,7 +60,7 @@ d3.csv("Assets/assets/data/data.csv").then(function(demoData) {
        .enter()
        .append("circle")
        .attr("cx", d => xLinearScale(d.poverty))
-       .attr("cy", d => yLinearScale(d.num_hits))
+       .attr("cy", d => yLinearScale(d.healthcare))
        .attr("r", "15")
        .attr("fill", "purple")
        .attr("opacity", ".5");

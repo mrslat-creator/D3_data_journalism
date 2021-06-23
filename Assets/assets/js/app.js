@@ -5,7 +5,7 @@ var chosenYAxis = "healthcare";
 function xScale(data, chosenXAxis, chartWidth) {
   // Creat scales
   var xLinearScale = d3.scaleLinear()
-      .domain([d3.min(data, d => d[chosenXAxis]) * .8,
+      .domain([d3.min(data, d => d[chosenXAxis]) * 0.8,
           d3.max(data, d => d[chosenXAxis]) * 1.1])
       .range([0, chartWidth]);
   return xLinearScale;
@@ -22,7 +22,7 @@ function renderXAxis(newXScale, xAxis) {
 function yScale(data, chosenYAxis, chartHeight) {
   //Create Scales
   var yLinearScale = d3.scaleLinear()
-      .domain([d3.min(data, d => d[chosenYAxis]) * .8,
+      .domain([d3.min(data, d => d[chosenYAxis]) * 0.8,
         d3.max(data, d => d[chosenYAxis]) * 1.2])
       .range([chartHeight, 0]);
     return yLinearScale;
@@ -57,17 +57,17 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, textGroup) {
     if(chosenXAxis === "poverty") {
       var xlabel = "Poverty: ";
   } else if (chosenXAxis === "income") {
-      var xlabel = "Median Income: "
+      var xlabel = "Income: ";
   } else {
-      var xlabel = "Age: "
+      var xlabel = "Age: ";
   }
   // Conditonal for Y Axis
   if (chosenYAxis === "healthcare") {
    var ylabel = "Lacks Healthcare: ";
   } else if (chosenYAxis === "smokes") {
-    var ylabel = "Smokers: "
+    var ylabel = "Smokers: ";
   } else {
-    var ylabel = "Obesity: "
+    var ylabel = "Obesity: ";
   }
   // Define ToolTip
   var toolTip = d3.tip()

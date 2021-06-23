@@ -66,7 +66,7 @@ d3.csv("Assets/assets/data/data.csv").then(function(demoData) {
        .attr("opacity", ".5");
 
        //Init Tool Tip
-       var toolTip = d3.timeParse()
+       var toolTip = d3.tip()
        .attr("class", "toolTip")
        .offset([80, -60])
        .html(function(d) {

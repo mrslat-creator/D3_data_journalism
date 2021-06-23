@@ -42,10 +42,9 @@ function responsiveChart() {
         .attr("transfomr", `translate(${margin.left}, ${margin.top})`);
     
     //Read in SVG file and Extract Data
-    d3.csv("./assets/assets/data/data.csv").then(function(censusData) {
+    d3.csv("./Assets/assets/data.csv").then(function(censusData) {
       console.log(censusData);
-
-      //Convert data from csv table to numbers for use in scatter plot
+   //Convert data from csv table to numbers for use in scatter plot
       censusData.forEach(function(data){
          data.poverty = +data.poverty;
          data.povertyMoe = +data.povertyMoe;

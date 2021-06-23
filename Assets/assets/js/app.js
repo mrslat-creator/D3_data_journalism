@@ -39,7 +39,7 @@ function responsiveChart() {
     //Append group element "g" to the svg element, wrap all parts of the svg chart together
     //Transform to place "g" element at the proper margins on the svg canvas
     var chartGroup = svg.append("g")
-        .attr("transfomr", `translate(${margin.left}, ${margin.top})`);
+        .attr("transfomr", 'translate(${margin.left}, ${margin.top})');
     
     //Read in SVG file and Extract Data
     d3.csv("./Assets/assets/data.csv").then(function(censusData) {
@@ -97,7 +97,7 @@ function responsiveChart() {
       var tool_tip = d3.tip()
           .attr("class", "d3-tip")
           .offset([0,50])
-          .html(function(d) { return `${d.state}<hr>$${d.income}<hr>Obesity Index:  ${d.obesity}, Smoking Index: $ {d.smokes}`}); 
+          .html(function(d) { return '${d.state}<hr>$${d.income}<hr>Obesity Index: ${d.obesity}, Smoking Index: $ {d.smokes}'}); 
     
       svg.call(tool_tip);
       

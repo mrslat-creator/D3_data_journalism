@@ -24,7 +24,7 @@ var chartGroup = svg.append("g")
 d3.csv("Assets/assets/data/data.csv").then(function(demoData) {
 
       //Parse Data
-      demoData.forEach(function(data)  {
+      demoData.forEach(function(data) {
         data.poverty = +data.poverty;
         data.healthcare = +data.healthcare;
         // data.age = +data.age;
@@ -70,7 +70,7 @@ d3.csv("Assets/assets/data/data.csv").then(function(demoData) {
        .attr("class", "toolTip")
        .offset([80, -60])
        .html(function(d) {
-           return (`${d.state}<br> Poverty: ${d.poverty}<br>Healthcare: ${d.healthcare}`);
+           return (`${d.state}<br>Poverty: ${d.poverty}<br>Healthcare: ${d.healthcare}`);
        });
        
        //Create tooltip in the chart
@@ -95,9 +95,9 @@ d3.csv("Assets/assets/data/data.csv").then(function(demoData) {
           .text("State by State Breakdown of Poverty");
 
         chartGroup.append("text")
-           .attr("transform", '`translate(${width / 2}, ${height + margin.top +30})')
+           .attr("transform", `translate(${width / 2}, ${height + margin.top +30})`)
            .attr("class", "axisText")
            .text("State by State Breakdown of Healthcare");
-        }).catch(function(error) {
+     }).catch(function(error) {
           console.log(error);
         });

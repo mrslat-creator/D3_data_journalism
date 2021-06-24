@@ -1,6 +1,3 @@
-
-function makeResponsive() {
-
 var svgWidth = 960;
 var svgHeight = 500;
 
@@ -15,7 +12,7 @@ var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
 
 //Create a SVG Wrapper, append a  SVG group that can hold our chart, and shift the latter by left and top margins.
-var svg = d3.select(".chart")
+var svg = d3.select("#chart")
    .append("svg")
    .attr("width", svgWidth)
    .attr("height", svgHeight);
@@ -25,7 +22,7 @@ var chartGroup = svg.append("g")
 
 //Import Data
 d3.csv("Assets/data/data.csv").then(function(demoData) {
-
+      console.log(demoData);
       //Parse Data
       demoData.forEach(function(data) {
         data.poverty = +data.poverty;
@@ -34,15 +31,16 @@ d3.csv("Assets/data/data.csv").then(function(demoData) {
         // data.smokes = +data.smokes;
         // data.income = +data.income;
         // data.obesity = +data.obesity;
+        console.log(data.poverty);
       });
-
+     
       // Create x/y linear scales
       var xLinearScale = d3.scaleLinear()
         .domain([20, d3.max(demoData, d => d.poverty)])
         .range([0, width]);
      
       var yLinearScale = d3.scaleLinear()
-         .domain([0, d3max(demoData, d => d.healthcare)])
+         .domain([0, d3.max(demoData, d => d.healthcare)])
          .range([height, 0]);
       
       //Create axis functions
@@ -104,9 +102,3 @@ d3.csv("Assets/data/data.csv").then(function(demoData) {
      }).catch(function(error) {
           console.log(error);
         });
-// When the browser loads, makeResponsive() is called.
-makeResponsive();
-
-// When the browser window is resized, makeResponsive() is called.
-d3.select(window).on("resize", makeResponsive);
-}

@@ -2,9 +2,9 @@ var svgWidth = 960;
 var svgHeight = 500;
 
 var margin = {
-  top: 20,
-  right: 40,
-  bottom: 60, 
+  top: 50,
+  right: 50,
+  bottom: 110, 
   left: 100
 };
 
@@ -31,12 +31,11 @@ d3.csv("Assets/data/data.csv").then(function(demoData) {
     data.smokes = +data.smokes;
     data.income = +data.income;
     data.obesity = +data.obesity;
-    console.log(data.poverty);
-
+    
   });
   //Create x/y Linear scales
   var xLinearScale = d3.scaleLinear()
-    .domain([20, d3.max(demoData, d => d.poverty)])
+    .domain([5000, d3.max(demoData, d => d.poverty)])
     .range([0, width]);
   
   var yLinearScale = d3.scaleLinear() 

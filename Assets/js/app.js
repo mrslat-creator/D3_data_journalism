@@ -27,6 +27,10 @@ d3.csv("Assets/data/data.csv").then(function(demoData) {
   demoData.forEach(function(data){
     data.poverty = +data.poverty;
     data.healthcare = +data.healthcare;
+    data.age = +data.age;
+    data.smokes = +data.smokes;
+    data.income = +data.income;
+    data.obesity = +data.obesity;
     console.log(data.poverty);
 
   });
@@ -59,7 +63,7 @@ d3.csv("Assets/data/data.csv").then(function(demoData) {
   .attr("cx", d => xLinearScale(d.poverty))
   .attr("cy", d => yLinearScale(d.healthcare))
   .attr("r", "15")
-  .attr("fill", "pink")
+  .attr("fill", "red")
   .attr("opacity", ".5");
 
   //Init Tool Tip

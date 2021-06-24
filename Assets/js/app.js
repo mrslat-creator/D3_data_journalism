@@ -7,11 +7,7 @@ var margin = {
   bottom: 60, 
   left: 100
 };
-var dots = svg.selectAll(".dots")
-    .data(data)
-    .enter()
-    .append("path");
-    
+
 var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
 

@@ -1,10 +1,10 @@
-var svgWidth = 9600;
-var svgHeight = 1000;
+var svgWidth = 960;
+var svgHeight = 500;
 
 var margin = {
-  top: 50,
+  top: 60,
   right: 40,
-  bottom: 80, 
+  bottom: 60, 
   left: 100
 };
 
@@ -35,7 +35,7 @@ d3.csv("Assets/data/data.csv").then(function(demoData) {
   });
   //Create x/y Linear scales
   var xLinearScale = d3.scaleLinear()
-    .domain([5000, d3.max(demoData, d => d.poverty)])
+    .domain([20, d3.max(demoData, d => d.poverty)])
     .range([0, width]);
   
   var yLinearScale = d3.scaleLinear() 

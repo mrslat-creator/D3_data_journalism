@@ -2,7 +2,7 @@ var svgWidth = 960;
 var svgHeight = 500;
 
 var margin = {
-  top: 60,
+  top: 20,
   right: 40,
   bottom: 60, 
   left: 100
@@ -89,7 +89,7 @@ d3.csv("Assets/data/data.csv").then(function(demoData) {
     .attr("transform", "rotate(-90")
     .attr("y", 0 - margin.left + 40)
     .attr("x", 0 - (height /2))
-    .attr("dy", "1em")
+    .attr("dy", "0.71em")
     .attr("class", "axisText")
     .text("State by State Breakdown of Poverty");
 
